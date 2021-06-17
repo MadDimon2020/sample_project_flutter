@@ -12,12 +12,11 @@ Future<void> initAppModule(BuildMode buildMode) async {
   kBuildMode = buildMode;
 
   await initializeDateFormatting();
-  await DotEnv().load();
+  await DotEnv().load('.env.example');
   final env = DotEnv().env;
 
   await GetStorage.init();
   Get.put(ThemeController());
-
 
   await Get.put(StoreController()).init();
 
